@@ -46,7 +46,7 @@ return array(
 	| Crowd Auth: Usable User Groups
 	|--------------------------------------------------------------------------
     |
-    | Here is where you define each of the groups that have access to your 
+    | Here is where you define each of the groups that have access to your
     | application.
 	*/
 
