@@ -29,7 +29,9 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/migrations",
+            "src/models",
+            "src/lang"
         ],
         "psr-4": {
             "GLOKON\\CrowdAuth\\": "src/GLOKON/CrowdAuth/"
