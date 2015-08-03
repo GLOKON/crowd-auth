@@ -14,7 +14,8 @@ namespace GLOKON\CrowdAuth;
 use Illuminate\Auth\UserProviderInterface;
 use Illuminate\Auth\GenericUser;
 
-use Models;
+use GLOKON\CrowdAuth\Models\CrowdUser;
+use GLOKON\CrowdAuth\Models\CrowdGroup;
 
 class CrowdAuthUserProvider implements UserProviderInterface {
 
