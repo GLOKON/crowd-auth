@@ -17,12 +17,27 @@
         "illuminate/database": "*",
         "illuminate/auth": "4.2.*"
     },
+    "require-dev": {
+        "orchestra/testbench": "~2.2.0",
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^4.7.6"
+    },
     "autoload": {
         "classmap": [
             "src/migrations"
         ],
         "psr-4": {
-            "GLOKON\\CrowdAuth\\": "src/GLOKON/CrowdAuth"
+            "GLOKON\\CrowdAuth\\": "src/GLOKON/CrowdAuth/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GLOKON\\Tests\\CrowdAuth\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.3-dev"
         }
     },
     "minimum-stability": "stable"
