@@ -23,9 +23,9 @@ class CrowdAPI {
      */
 	private function runCrowdAPI($requestEndpoint, $requestType, $requestData)
 	{
-		$crowdURL = \Config::get('crowd-auth::url');
-		$crowdAppName = \Config::get('crowd-auth::app_name');
-		$crowdAppPassword = \Config::get('crowd-auth::app_password');
+		$crowdURL = \Config::get('crowd-auth::crowdauth.url');
+		$crowdAppName = \Config::get('crowd-auth::crowdauth.app_name');
+		$crowdAppPassword = \Config::get('crowd-auth::crowdauth.app_password');
 		$crowdHTTPHeaders = array(
 								'Accept: application/json',
 								'Content-Type: application/json',
@@ -251,7 +251,7 @@ class CrowdAPI {
 	{
 		$userGroups = $this->getUserGroups($username);
 		if(count($userGroups) > 0) {
-			if(count(array_intersect($userGroups, \Config::get('crowd-auth::app_groups'))) > 0) {
+			if(count(array_intersect($userGroups, \Config::get('crowd-auth::crowdauth.app_groups'))) > 0) {
 				return true;
 			}
 		}
