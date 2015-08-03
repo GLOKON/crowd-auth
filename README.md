@@ -48,9 +48,9 @@ Once the configuration is published go to your `config/packages/glokon/laravel-c
 After you have configured the crowd settings you need to change the `driver`, `model` and `table` in `config/auth.php` to:
 
 ```php
-'driver' => 'crowdauth',
+'driver' => 'crowd-auth',
 ...
-'model' => 'CrowdUser',
+'model' => 'GLOKON\CrowdAuth\Models\CrowdUser',
 ...
 'table' => 'crowd_users',
 ```
