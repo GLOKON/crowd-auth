@@ -30,7 +30,7 @@ class CrowdUser extends \Eloquent implements UserInterface, RemindableInterface 
 	protected $table = 'crowd_users';
 
 	public function groups() {
-		return $this->belongsToMany('CrowdGroup', 'crowdgroup_crowduser', 'crowd_user_id', 'crowd_group_id');
+		return $this->belongsToMany('GLOKON\CrowdAuth\Models\CrowdGroup', 'crowdgroup_crowduser', 'crowd_user_id', 'crowd_group_id');
 	}
 
 

@@ -22,6 +22,6 @@ class CrowdGroup extends \Eloquent {
 	protected $table = 'crowd_groups';
 
 	public function users() {
-		return $this->belongsToMany('CrowdUser', 'crowdgroup_crowduser', 'crowd_group_id', 'crowd_user_id');
+		return $this->belongsToMany('GLOKON\CrowdAuth\Models\CrowdUser', 'crowdgroup_crowduser', 'crowd_group_id', 'crowd_user_id');
 	}
 }
