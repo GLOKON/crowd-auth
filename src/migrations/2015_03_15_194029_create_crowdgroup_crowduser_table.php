@@ -28,12 +28,6 @@ class CreateCrowdgroupCrowduserTable extends Migration {
 			$table->integer('crowd_user_id')->unsigned()->index();
 			$table->timestamps();
 		});
-
-		Schema::table('crowdgroup_crowduser', function(Blueprint $table)
-		{
-			$table->foreign('crowd_group_id')->references('id')->on('crowd_groups')->onDelete('cascade');
-			$table->foreign('crowd_user_id')->references('id')->on('crowd_users')->onDelete('cascade');
-		});
 	}
 
 
