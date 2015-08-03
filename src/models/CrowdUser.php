@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GLOKON\CrowdAuth;
+namespace GLOKON\CrowdAuth\Models;
 
 use \Illuminate\Auth\UserTrait;
 use \Illuminate\Auth\UserInterface;

@@ -14,6 +14,8 @@ namespace GLOKON\CrowdAuth;
 use Illuminate\Auth\UserProviderInterface;
 use Illuminate\Auth\GenericUser;
 
+use Models;
+
 class CrowdAuthUserProvider implements UserProviderInterface {
 
 	/**
@@ -24,8 +26,8 @@ class CrowdAuthUserProvider implements UserProviderInterface {
 	 */
 	public function retrieveById($identifier) {
 		if($identifier != null) {
-			if(\App::make('crowdauth')->doesUserExist($identifier)) {
-				$userData = \App::make('crowdauth')->getUser($identifier);
+			if(\App::make('crowd-auth')->doesUserExist($identifier)) {
+				$userData = \App::make('crowd-auth')->getUser($identifier);
 				if($userData != null) {
 					return new GenericUser([
 							'id' => $userData['user-name'],
@@ -66,13 +68,13 @@ class CrowdAuthUserProvider implements UserProviderInterface {
 	 * @return bool
 	 */
 	public function validateCredentials(\Illuminate\Auth\UserInterface $user, array $credentials) {
-		if(\App::make('crowdauth')->canUserLogin($credentials['username'])) {
-			$token = \App::make('crowdauth')->ssoAuthUser($credentials);
-			if($token != null && \App::make('crowdauth')->ssoGetUser($credentials['username'], $token) != null) {
+		if(\App::make('crowd-auth')->canUserLogin($credentials['username'])) {
+			$token = \App::make('crowd-auth')->ssoAuthUser($credentials);
+			if($token != null && \App::make('crowd-auth')->ssoGetUser($credentials['username'], $token) != null) {
 				// Check if user exists in DB, if not add it.
-				$stored_crowd_user = \CrowdUser::where('crowd_key', '=', $user->key)->first();
+				$stored_crowd_user = CrowdUser::where('crowd_key', '=', $user->key)->first();
 				if($stored_crowd_user == null) {
-					$stored_crowd_user = \CrowdUser::create(array(
+					$stored_crowd_user = CrowdUser::create(array(
 						'crowd_key' => $user->key,
 						'username' => $user->username,
 						'email' => $user->email,
@@ -85,9 +87,9 @@ class CrowdAuthUserProvider implements UserProviderInterface {
 				$stored_crowd_user->groups()->detach();
 				foreach($user->usergroups as $usergroup) {
 					// Check if usergroup already exists in the DB, if not add it.
-					$crowdUserGroup = \CrowdGroup::where('group_name', '=', $usergroup)->first();
+					$crowdUserGroup = CrowdGroup::where('group_name', '=', $usergroup)->first();
 					if($crowdUserGroup == null) {
-						$crowdUserGroup = \CrowdGroup::create(array(
+						$crowdUserGroup = CrowdGroup::create(array(
 							'group_name' => $usergroup,
 						));
 					}
@@ -115,7 +117,7 @@ class CrowdAuthUserProvider implements UserProviderInterface {
 	 * @return \Illuminate\Auth\UserInterface|null
 	 */
 	public function retrieveByToken($identifier, $token) {
-		$userData = \App::make('crowdauth')->ssoGetUser($identifier, $token);
+		$userData = \App::make('crowd-auth')->ssoGetUser($identifier, $token);
 		if($userData != null) {
 			return $this->retrieveById($userData['user-name']);
 		}
@@ -132,7 +134,7 @@ class CrowdAuthUserProvider implements UserProviderInterface {
 	 */
 	public function updateRememberToken(\Illuminate\Auth\UserInterface $user, $token) {
 		if($user != null) {
-			$user->setRememberToken(\App::make('crowdauth')->ssoUpdateToken($token));
+			$user->setRememberToken(\App::make('crowd-auth')->ssoUpdateToken($token));
 		}
 		return null;
 	}

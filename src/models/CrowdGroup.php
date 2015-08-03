@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GLOKON\CrowdAuth;
+namespace GLOKON\CrowdAuth\Models;
 
 class CrowdGroup extends \Eloquent {
 	protected $fillable = array('group_name');
