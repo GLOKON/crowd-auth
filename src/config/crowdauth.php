@@ -52,9 +52,9 @@ return array(
 
 	'app_groups' => array(
 
-		'crowd-administrators',
+		'app-administrators',
 
-		'crowd-users',
+		'app-users',
 
 	),
 
