@@ -4,6 +4,11 @@
     "keywords": [
         "auth", "crowd", "authentication", "atlassian", "laravel"
     ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/GLOKON/laravel-crowd-auth/issues",
+        "source": "https://github.com/GLOKON/laravel-crowd-auth"
+    },
     "homepage": "https://github.com/GLOKON/laravel-crowd-auth",
     "authors": [
         {
