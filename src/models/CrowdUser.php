@@ -29,6 +29,12 @@ class CrowdUser extends \Eloquent implements UserInterface, RemindableInterface 
      */
     protected $table = 'crowd_users';
 
+
+    /**
+    * Get all groups that belong to the user
+    *
+    * @return CrowdGroup
+    */
     public function groups() {
         return $this->belongsToMany('GLOKON\CrowdAuth\Models\CrowdGroup', 'crowdgroup_crowduser', 'crowd_user_id', 'crowd_group_id');
     }
