@@ -9,6 +9,8 @@ Laravel CrowdAuth
 
 A simple way to implement Atlassian Crowd Authentication into your application.
 
+**SUPPORTED VERSIONS:** Atlassian Crowd 2.1 and later versions only.
+
 ## Quick start
 
 ### Laravel 4.2.x
