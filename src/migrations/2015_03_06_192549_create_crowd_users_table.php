@@ -14,35 +14,35 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateCrowdUsersTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('crowd_users', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('crowd_key')->unique();
-			$table->string('username');
-			$table->string('email');
-			$table->string('display_name');
-			$table->string('first_name');
-			$table->string('last_name');
-			$table->timestamps();
-		});
-	}
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('crowd_users', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('crowd_key')->unique();
+            $table->string('username');
+            $table->string('email');
+            $table->string('display_name');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->timestamps();
+        });
+    }
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('crowd_users');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('crowd_users');
+    }
 
 }

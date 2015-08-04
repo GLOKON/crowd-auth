@@ -14,37 +14,37 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateCrowdgroupCrowduserTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('crowdgroup_crowduser', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->integer('crowd_group_id')->unsigned()->index();
-			$table->integer('crowd_user_id')->unsigned()->index();
-			$table->timestamps();
-		});
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('crowdgroup_crowduser', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('crowd_group_id')->unsigned()->index();
+            $table->integer('crowd_user_id')->unsigned()->index();
+            $table->timestamps();
+        });
 
-		Schema::table('crowdgroup_crowduser', function(Blueprint $table)
-		{
-			$table->foreign('crowd_group_id')->references('id')->on('crowd_groups')->onDelete('cascade');
-			$table->foreign('crowd_user_id')->references('id')->on('crowd_users')->onDelete('cascade');
-		});
-	}
+        Schema::table('crowdgroup_crowduser', function(Blueprint $table)
+        {
+            $table->foreign('crowd_group_id')->references('id')->on('crowd_groups')->onDelete('cascade');
+            $table->foreign('crowd_user_id')->references('id')->on('crowd_users')->onDelete('cascade');
+        });
+    }
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('crowdgroup_crowduser');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('crowdgroup_crowduser');
+    }
 
 }

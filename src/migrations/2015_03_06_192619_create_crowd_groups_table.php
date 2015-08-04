@@ -14,30 +14,30 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateCrowdGroupsTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('crowd_groups', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('group_name');
-			$table->timestamps();
-		});
-	}
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('crowd_groups', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('group_name');
+            $table->timestamps();
+        });
+    }
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('crowd_groups');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('crowd_groups');
+    }
 
 }
