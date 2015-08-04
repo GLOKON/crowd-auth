@@ -33,7 +33,7 @@ In your `config/app.php` add `'GLOKON\CrowdAuth\CrowdAuthServiceProvider'` to th
 ),
 ```
 
-Now generate the crowd auth migration (make sure you have your database configuration set up):
+Now generate the Crowd Auth migrations (make sure you have your database configuration set up):
 
     $ php artisan migrate --package="glokon/laravel-crowd-auth"
 
@@ -43,12 +43,12 @@ Now publish the config files for this package:
 
     $ php artisan config:publish "glokon/laravel-crowd-auth"
 
-Once the configuration is published go to your `config/packages/glokon/laravel-crowd-auth/crowdauth.php` and configure the crowd settings.
+Once the configuration is published go to your `config/packages/glokon/laravel-crowd-auth/crowdauth.php` and configure your Atlassian Crowd settings.
 
-After you have configured the crowd settings you need to change the `driver` setting in `config/auth.php` to:
+After you have configured your Atlassian Crowd settings you need to change the `driver` setting in `config/auth.php` to:
 
 ```php
 'driver' => 'crowd-auth',
 ```
 
-Once all this is completed you can simply use `Auth::Attempt()` and it will attempt to login using the crowd server.
+Once all this is completed you can simply use `Auth::Attempt()` and it will attempt to login using your Atlassian Crowd server.
