@@ -98,10 +98,10 @@ class CrowdAuthUserProvider implements UserProviderInterface {
                     // Check if user has a group retrieved from Crowd
                     if($stored_crowd_user->userHasGroup($crowdUserGroup->id) == false) {
                         $stored_crowd_user->groups()->attach($crowdUserGroup);
-                        $stored_crowd_user->save();
                     }
 
                 }
+                $stored_crowd_user->save();
                 $user->setRememberToken($token);
                 return true;
             }
