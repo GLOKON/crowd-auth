@@ -37,7 +37,7 @@ Now generate the crowd auth migration (make sure you have your database configur
 
     $ php artisan migrate --package="glokon/laravel-crowd-auth"
 
-It will setup two tables - crowd_users and crowd_groups.
+This will setup three tables - `crowd_users`, `crowd_groups` and `crowdgroup_crowduser`.
 
 Now publish the config files for this package:
 
@@ -45,14 +45,10 @@ Now publish the config files for this package:
 
 Once the configuration is published go to your `config/packages/glokon/laravel-crowd-auth/crowdauth.php` and configure the crowd settings.
 
-After you have configured the crowd settings you need to change the `driver`, `model` and `table` in `config/auth.php` to:
+After you have configured the crowd settings you need to change the `driver` setting in `config/auth.php` to:
 
 ```php
 'driver' => 'crowd-auth',
-...
-'model' => 'GLOKON\CrowdAuth\Models\CrowdUser',
-...
-'table' => 'crowd_users',
 ```
 
 Once all this is completed you can simply use `Auth::Attempt()` and it will attempt to login using the crowd server.
