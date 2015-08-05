@@ -29,7 +29,7 @@ class CrowdAuthServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('glokon/laravel-crowd-auth', 'crowd-auth');
+        $this->package('glokon/crowd-auth', 'crowd-auth');
         \Auth::extend('crowd-auth', function() {
             return new \Illuminate\Auth\Guard(new \GLOKON\CrowdAuth\CrowdAuthUserProvider, \App::make('session.store'));
         });
