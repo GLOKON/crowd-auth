@@ -1,11 +1,11 @@
 CrowdAuth
 ========
 
-[![Build Status](https://travis-ci.org/GLOKON/laravel-crowd-auth.svg)](https://travis-ci.org/GLOKON/laravel-crowd-auth)
-[![Latest Stable Version](https://poser.pugx.org/glokon/laravel-crowd-auth/v/stable)](https://packagist.org/packages/glokon/laravel-crowd-auth)
-[![Total Downloads](https://poser.pugx.org/glokon/laravel-crowd-auth/downloads)](https://packagist.org/packages/glokon/laravel-crowd-auth)
-[![Latest Unstable Version](https://poser.pugx.org/glokon/laravel-crowd-auth/v/unstable)](https://packagist.org/packages/glokon/laravel-crowd-auth)
-[![License](https://poser.pugx.org/glokon/laravel-crowd-auth/license)](https://packagist.org/packages/glokon/laravel-crowd-auth)
+[![Build Status](https://travis-ci.org/GLOKON/crowd-auth.svg)](https://travis-ci.org/GLOKON/crowd-auth)
+[![Latest Stable Version](https://poser.pugx.org/glokon/crowd-auth/v/stable)](https://packagist.org/packages/glokon/crowd-auth)
+[![Total Downloads](https://poser.pugx.org/glokon/crowd-auth/downloads)](https://packagist.org/packages/glokon/crowd-auth)
+[![Latest Unstable Version](https://poser.pugx.org/glokon/crowd-auth/v/unstable)](https://packagist.org/packages/glokon/crowd-auth)
+[![License](https://poser.pugx.org/glokon/crowd-auth/license)](https://packagist.org/packages/glokon/crowd-auth)
 
 A simple way to implement Atlassian Crowd Authentication into your application.
 
