@@ -6,6 +6,7 @@ CrowdAuth
 [![Total Downloads](https://poser.pugx.org/glokon/crowd-auth/downloads)](https://packagist.org/packages/glokon/crowd-auth)
 [![Latest Unstable Version](https://poser.pugx.org/glokon/crowd-auth/v/unstable)](https://packagist.org/packages/glokon/crowd-auth)
 [![License](https://poser.pugx.org/glokon/crowd-auth/license)](https://packagist.org/packages/glokon/crowd-auth)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GLOKON/crowd-auth/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GLOKON/crowd-auth/?branch=master)
 
 A simple way to implement Atlassian Crowd Authentication into your application.
 
