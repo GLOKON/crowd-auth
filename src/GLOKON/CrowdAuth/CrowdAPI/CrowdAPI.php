@@ -31,7 +31,7 @@ class CrowdAPI {
                                 'Content-Type: application/json',
                             );
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $crowdURL . 'rest/usermanagement' . $requestEndpoint);
+        curl_setopt($ch, CURLOPT_URL, $crowdURL . '/rest/usermanagement' . $requestEndpoint);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $crowdHTTPHeaders);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_USERPWD, $crowdAppName . ":" . $crowdAppPassword);

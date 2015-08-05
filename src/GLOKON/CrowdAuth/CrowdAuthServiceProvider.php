@@ -29,7 +29,7 @@ class CrowdAuthServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('glokon/crowd-auth', 'crowd-auth');
+        $this->package('glokon/crowd-auth');
         \Auth::extend('crowd-auth', function() {
             return new \Illuminate\Auth\Guard(new \GLOKON\CrowdAuth\CrowdAuthUserProvider, \App::make('session.store'));
         });
@@ -43,7 +43,7 @@ class CrowdAuthServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        // Bind the crowdauth name to a singleton instance of the Crowd API Service
+        // Bind the CrowdAuth name to a singleton instance of the Crowd API Service
         $this->app->singleton('crowd-auth', function() {
             return new CrowdAPI();
         });

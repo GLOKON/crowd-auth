@@ -16,10 +16,10 @@ return array(
     | Crowd Auth: Crowd URL
     |--------------------------------------------------------------------------
     | Please specify the URL to your crowd service for authentication, it must
-    | end in a forward slash and be a publicly accesible URL.
+    | NOT end in a forward slash and be a publicly accesible URL.
     */
 
-    'url' => 'http://crowd.example.com:8080/crowd/',
+    'url' => 'http://crowd.example.com:8080/crowd',
 
     /*
     |--------------------------------------------------------------------------
