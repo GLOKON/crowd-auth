@@ -17,7 +17,7 @@ A simple way to implement Atlassian Crowd Authentication into your application.
 
 In the `require` key of `composer.json` file add the following
 
-    "glokon/laravel-crowd-auth": "*"
+    "glokon/crowd-auth": "*"
 
 Run the Composer update comand
 
@@ -37,15 +37,15 @@ In your `config/app.php` add `'GLOKON\CrowdAuth\CrowdAuthServiceProvider'` to th
 
 Now generate the Crowd Auth migrations (make sure you have your database configuration set up):
 
-    $ php artisan migrate --package="glokon/laravel-crowd-auth"
+    $ php artisan migrate --package="glokon/crowd-auth"
 
 This will setup three tables - `crowd_users`, `crowd_groups` and `crowdgroup_crowduser`.
 
 Now publish the config files for this package:
 
-    $ php artisan config:publish "glokon/laravel-crowd-auth"
+    $ php artisan config:publish "glokon/crowd-auth"
 
-Once the configuration is published go to your `config/packages/glokon/laravel-crowd-auth/crowdauth.php` and configure your Atlassian Crowd settings.
+Once the configuration is published go to your `config/packages/glokon/crowd-auth/crowdauth.php` and configure your Atlassian Crowd settings.
 
 After you have configured your Atlassian Crowd settings you need to change the `driver` setting in `config/auth.php` to:
 

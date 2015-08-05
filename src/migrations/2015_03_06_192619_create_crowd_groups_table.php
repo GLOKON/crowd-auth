@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel CrowdAuth
+ * This file is part of CrowdAuth
  *
  * (c) Daniel McAssey <hello@glokon.me>
  *

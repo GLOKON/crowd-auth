@@ -1,15 +1,15 @@
 {
-    "name": "glokon/laravel-crowd-auth",
+    "name": "glokon/crowd-auth",
     "description": "A simple way to implement Atlassian Crowd Authentication into your application.",
     "keywords": [
         "auth", "crowd", "authentication", "atlassian", "laravel"
     ],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/GLOKON/laravel-crowd-auth/issues",
-        "source": "https://github.com/GLOKON/laravel-crowd-auth"
+        "issues": "https://github.com/GLOKON/crowd-auth/issues",
+        "source": "https://github.com/GLOKON/crowd-auth"
     },
-    "homepage": "https://github.com/GLOKON/laravel-crowd-auth",
+    "homepage": "https://github.com/GLOKON/crowd-auth",
     "authors": [
         {
             "name": "Daniel McAssey",
@@ -44,7 +44,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.6-dev"
+            "dev-master": "0.7-dev"
         }
     },
     "minimum-stability": "stable"
