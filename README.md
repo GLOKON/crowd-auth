@@ -1,4 +1,4 @@
-Laravel CrowdAuth
+CrowdAuth
 ========
 
 [![Build Status](https://travis-ci.org/GLOKON/laravel-crowd-auth.svg)](https://travis-ci.org/GLOKON/laravel-crowd-auth)
