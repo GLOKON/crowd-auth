@@ -23,10 +23,10 @@ class CrowdGroup extends \Eloquent {
 
 
     /**
-    * Get all users that use this group
-    *
-    * @return CrowdUser
-    */
+     * Get all users that use this group
+     *
+     * @return CrowdUser
+     */
     public function users() {
         return $this->belongsToMany('GLOKON\CrowdAuth\Models\CrowdUser', 'crowdgroup_crowduser', 'crowd_group_id', 'crowd_user_id');
     }

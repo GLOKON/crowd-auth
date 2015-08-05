@@ -31,13 +31,13 @@ class CrowdAPI {
                                 'Content-Type: application/json',
                             );
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $crowdURL . '/rest/usermanagement' . $requestEndpoint);
+        curl_setopt($ch, CURLOPT_URL, $crowdURL.'/rest/usermanagement'.$requestEndpoint);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $crowdHTTPHeaders);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_USERPWD, $crowdAppName . ":" . $crowdAppPassword);
+        curl_setopt($ch, CURLOPT_USERPWD, $crowdAppName.":".$crowdAppPassword);
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        switch($requestType) {
+        switch ($requestType) {
             case "POST":
                 curl_setopt($ch, CURLOPT_POST, 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
@@ -79,8 +79,8 @@ class CrowdAPI {
                         )
                     ));
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "POST", $apiData);
-        if($apiReturn['status'] == '201') {
-            if($credentials['username'] == $apiReturn['data']['user']['name']) {
+        if ($apiReturn['status'] == '201') {
+            if ($credentials['username'] == $apiReturn['data']['user']['name']) {
                 return $apiReturn['data']['token'];
             }
         }
@@ -97,10 +97,10 @@ class CrowdAPI {
      */
     public function ssoGetUser($username, $token)
     {
-        $apiEndpoint = '/1/session/' . $token;
+        $apiEndpoint = '/1/session/'.$token;
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "GET", array());
-        if($apiReturn['status'] == '200') {
-            if($apiReturn['data']['user']['name'] == $username && $token == $apiReturn['data']['token']) {
+        if ($apiReturn['status'] == '200') {
+            if ($apiReturn['data']['user']['name'] == $username && $token == $apiReturn['data']['token']) {
                 return $this->getUser($apiReturn['data']['user']['name']);
             }
         }
@@ -116,9 +116,9 @@ class CrowdAPI {
      */
     public function ssoGetToken($token)
     {
-        $apiEndpoint = '/1/session/' . $token;
+        $apiEndpoint = '/1/session/'.$token;
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "GET", array());
-        if($apiReturn['status'] == '200') {
+        if ($apiReturn['status'] == '200') {
             return $apiReturn['data']['token'];
         }
         return null;
@@ -133,14 +133,14 @@ class CrowdAPI {
      */
     public function ssoUpdateToken($token)
     {
-        $apiEndpoint = '/1/session/' . $token;
+        $apiEndpoint = '/1/session/'.$token;
         $apiData = array(
                         'validationFactors' => array(
                             'name' => 'remote_address',
                             'value' => $_SERVER['REMOTE_ADDR']
                         ));
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "POST", $apiData);
-        if($apiReturn['status'] == '200') {
+        if ($apiReturn['status'] == '200') {
             return $apiReturn['data']['token'];
         }
         return null;
@@ -155,9 +155,9 @@ class CrowdAPI {
      */
     public function ssoInvalidateToken($token)
     {
-        $apiEndpoint = '/1/session/' . $token;
+        $apiEndpoint = '/1/session/'.$token;
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "DELETE", array());
-        if($apiReturn['status'] == '204') {
+        if ($apiReturn['status'] == '204') {
             return true;
         }
         return false;
@@ -172,11 +172,11 @@ class CrowdAPI {
      */
     public function getUser($username)
     {
-        $apiEndpoint = '/1/user?username=' . $username . '&expand=attributes';
+        $apiEndpoint = '/1/user?username='.$username.'&expand=attributes';
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "GET", array());
-        if($apiReturn['status'] == '200') {
+        if ($apiReturn['status'] == '200') {
             $userAttributes = array();
-            for($i = 0; $i < count($apiReturn['data']['attributes']['attributes']); $i++) {
+            for ($i = 0; $i < count($apiReturn['data']['attributes']['attributes']); $i++) {
                 $currentAttribute = $apiReturn['data']['attributes']['attributes'][$i];
                 $userAttributes[$currentAttribute['name']] = $currentAttribute['values'][0];
             }
@@ -204,11 +204,11 @@ class CrowdAPI {
      */
     public function getUserGroups($username)
     {
-        $apiEndpoint = '/1/user/group/direct?username=' . $username;
+        $apiEndpoint = '/1/user/group/direct?username='.$username;
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "GET", array());
-        if($apiReturn['status'] == '200') {
+        if ($apiReturn['status'] == '200') {
             $groups = array();
-            for($i = 0; $i < count($apiReturn['data']['groups']); $i++) {
+            for ($i = 0; $i < count($apiReturn['data']['groups']); $i++) {
                 $groups[] = $apiReturn['data']['groups'][$i]['name'];
             }
             return $groups;
@@ -225,9 +225,9 @@ class CrowdAPI {
      */
     public function doesUserExist($username)
     {
-        $apiEndpoint = '/1/user?username=' . $username;
+        $apiEndpoint = '/1/user?username='.$username;
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "GET", array());
-        if($apiReturn['status'] == '200') {
+        if ($apiReturn['status'] == '200') {
             return true;
         }
         return false;
@@ -243,8 +243,8 @@ class CrowdAPI {
     public function canUserLogin($username)
     {
         $userGroups = $this->getUserGroups($username);
-        if(count($userGroups) > 0) {
-            if(count(array_intersect($userGroups, \Config::get('crowd-auth::crowdauth.app_groups'))) > 0) {
+        if (count($userGroups) > 0) {
+            if (count(array_intersect($userGroups, \Config::get('crowd-auth::crowdauth.app_groups'))) > 0) {
                 return true;
             }
         }
