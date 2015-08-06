@@ -1,10 +1,8 @@
 <?php
 
-namespace GLOKON\CrowdAuth\Tests;
+use GLOKON\CrowdAuth\CrowdAPI;
 
-use \GLOKON\CrowdAuth\CrowdAPI;
-
-class CrowdAPITest extends \PHPUnit_Framework_TestCase
+class CrowdAPITest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -18,8 +16,13 @@ class CrowdAPITest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-
         $this->crowd_api = new CrowdAPI();
+    }
+
+    /** @test */
+    public function it_initializes()
+    {
+        $this->assertInstanceOf('\GLOKON\CrowdAuth\CrowdAPI', $this->crowd_api);
     }
 
     /** @test */
