@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of CrowdAuth
+ *
+ * (c) Daniel McAssey <hello@glokon.me>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use GLOKON\CrowdAuth\Api\CrowdAPI;
 
 class CrowdAPITest extends \Orchestra\Testbench\TestCase
@@ -37,7 +46,7 @@ class CrowdAPITest extends \Orchestra\Testbench\TestCase
     /** @test */
     public function it_initializes()
     {
-        $this->assertInstanceOf('\GLOKON\CrowdAuth\CrowdAPI', $this->crowd_api);
+        $this->assertInstanceOf('\GLOKON\CrowdAuth\Api\CrowdAPI', $this->crowd_api);
     }
 
     /** @test */
@@ -45,10 +54,10 @@ class CrowdAPITest extends \Orchestra\Testbench\TestCase
     {
         $this->assertEquals($this->crowd_api->getUserGroups('php_unit_user'), null);
         $this->assertEquals($this->crowd_api->getUser('php_unit_user'), null);
-        $this->assertEquals($this->crowd_api->ssoUpdateToken('php_unit_user'), null);
+        $this->assertEquals($this->crowd_api->ssoUpdateToken('php_unit_user', '0.0.0.0'), null);
         $this->assertEquals($this->crowd_api->ssoGetToken('php_unit_user'), null);
         $this->assertEquals($this->crowd_api->ssoGetUser('php_unit_user'), null);
-        $this->assertEquals($this->crowd_api->ssoAuthUser('php_unit_user'), null);
+        $this->assertEquals($this->crowd_api->ssoAuthUser('php_unit_user', '0.0.0.0'), null);
     }
 
     /** @test */

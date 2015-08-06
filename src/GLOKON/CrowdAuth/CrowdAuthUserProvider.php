@@ -69,7 +69,7 @@ class CrowdAuthUserProvider implements UserProviderInterface {
      */
     public function validateCredentials(\Illuminate\Auth\UserInterface $user, array $credentials) {
         if (\App::make('crowd-auth')->canUserLogin($credentials['username'])) {
-            $token = \App::make('crowd-auth')->ssoAuthUser($credentials);
+            $token = \App::make('crowd-auth')->ssoAuthUser($credentials, filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
             if ($token != null && \App::make('crowd-auth')->ssoGetUser($credentials['username'], $token) != null) {
                 // Check if user exists in DB, if not add it.
                 $stored_crowd_user = CrowdUser::where('crowd_key', '=', $user->key)->first();
@@ -134,7 +134,7 @@ class CrowdAuthUserProvider implements UserProviderInterface {
      */
     public function updateRememberToken(\Illuminate\Auth\UserInterface $user, $token) {
         if ($user != null) {
-            $user->setRememberToken(\App::make('crowd-auth')->ssoUpdateToken($token));
+            $user->setRememberToken(\App::make('crowd-auth')->ssoUpdateToken($token, filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)));
         }
         return null;
     }

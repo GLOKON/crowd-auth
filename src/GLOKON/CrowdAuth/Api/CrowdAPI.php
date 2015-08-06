@@ -64,7 +64,7 @@ class CrowdAPI {
      * @param  array  $credentials
      * @return string|null
      */
-    public function ssoAuthUser($credentials)
+    public function ssoAuthUser($credentials, $user_ip)
     {
         $apiEndpoint = '/1/session';
         $apiData = array(
@@ -74,7 +74,7 @@ class CrowdAPI {
                         'validationFactors' => array(
                             array(
                                 'name'  => 'remote_address',
-                                'value' => $_SERVER['REMOTE_ADDR']
+                                'value' => $user_ip
                             )
                         )
                     ));
@@ -131,13 +131,13 @@ class CrowdAPI {
      * @param  string  $token
      * @return string|null
      */
-    public function ssoUpdateToken($token)
+    public function ssoUpdateToken($token, $user_ip)
     {
         $apiEndpoint = '/1/session/'.$token;
         $apiData = array(
                         'validationFactors' => array(
                             'name' => 'remote_address',
-                            'value' => $_SERVER['REMOTE_ADDR']
+                            'value' => $user_ip
                         ));
         $apiReturn = $this->runCrowdAPI($apiEndpoint, "POST", $apiData);
         if ($apiReturn['status'] == '200') {
