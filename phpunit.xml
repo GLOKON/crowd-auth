@@ -9,10 +9,24 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
->
+    >
     <testsuites>
         <testsuite name="Package Test Suite">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <file>src/GLOKON/CrowdAuth/CrowdAuthServiceProvider.php</file>
+                <file>src/GLOKON/CrowdAuth/CrowdAuthUserProvider.php</file>
+                <directory prefix="Mock">src</directory>
+                <directory suffix=".php">tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <ini name="date.timezone" value="Europe/London"/>
+    </php>
 </phpunit>
