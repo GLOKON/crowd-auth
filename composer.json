@@ -27,18 +27,8 @@
         "phpunit/phpunit": "4.*"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations",
-            "src/models",
-            "src/lang"
-        ],
-        "psr-4": {
-            "GLOKON\\CrowdAuth\\": "src/GLOKON/CrowdAuth/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "GLOKON\\Tests\\CrowdAuth\\": "tests/"
+        "psr-0": {
+            "GLOKON\\CrowdAuth\\": "src/"
         }
     },
     "extra": {
