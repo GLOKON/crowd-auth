@@ -4,7 +4,7 @@ namespace GLOKON\CrowdAuth\Tests;
 
 use GLOKON\CrowdAuth\CrowdAPI;
 
-class CrowdAPITest extends PHPUnit_Framework_TestCase
+class CrowdAPITest extends \PHPUnit_Framework_TestCase
 {
 
     /**
