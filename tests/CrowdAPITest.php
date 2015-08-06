@@ -56,7 +56,7 @@ class CrowdAPITest extends \Orchestra\Testbench\TestCase
         $this->assertEquals($this->crowd_api->getUser('php_unit_user'), null);
         $this->assertEquals($this->crowd_api->ssoUpdateToken('php_unit_user', '0.0.0.0'), null);
         $this->assertEquals($this->crowd_api->ssoGetToken('php_unit_user'), null);
-        $this->assertEquals($this->crowd_api->ssoGetUser('php_unit_user'), null);
+        $this->assertEquals($this->crowd_api->ssoGetUser('php_unit_user', 'php_unit_token'), null);
         $this->assertEquals($this->crowd_api->ssoAuthUser('php_unit_user', '0.0.0.0'), null);
     }
 
