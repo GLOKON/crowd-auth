@@ -2,7 +2,7 @@
 
 use GLOKON\CrowdAuth\Api\CrowdAPI;
 
-class CrowdAPITest extends PHPUnit_Framework_TestCase
+class CrowdAPITest extends \Orchestra\Testbench\TestCase
 {
 
     /**
@@ -17,6 +17,21 @@ class CrowdAPITest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->crowd_api = new CrowdAPI();
+    }
+
+    /**
+     * Get package providers.  At a minimum this is the package being tested, but also
+     * would include packages upon which our package depends, e.g. Cartalyst/Sentry
+     * In a normal app environment these would be added to the 'providers' array in
+     * the config/app.php file.
+     *
+     * @return array
+     */
+    protected function getPackageProviders()
+    {
+        return array(
+            'GLOKON\CrowdAuth\CrowdAuthServiceProvider',
+        );
     }
 
     /** @test */
