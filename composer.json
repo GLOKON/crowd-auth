@@ -23,9 +23,8 @@
         "illuminate/auth": "4.2.*"
     },
     "require-dev": {
-        "orchestra/testbench": "2.2.*",
-        "mockery/mockery": "^0.9.4",
-        "phpunit/phpunit": "^4.7.6"
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "4.*"
     },
     "autoload": {
         "classmap": [
