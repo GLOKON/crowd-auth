@@ -66,8 +66,7 @@ class CrowdAPI {
      */
     public function ssoAuthUser($credentials, $user_ip)
     {
-        if(is_array($credentials) && isset($credentials["username"]) && isset($credentials["password"]))
-        {
+        if (is_array($credentials) && isset($credentials["username"]) && isset($credentials["password"])) {
             $apiEndpoint = '/1/session';
             $apiData = array(
                         'username' => $credentials['username'],
@@ -129,7 +128,7 @@ class CrowdAPI {
 
 
     /**
-     * Retrieves the token if matched with sent token
+     * Retrieves and updates the token if matched with sent token
      *
      * @param  string  $token
      * @return string|null
