@@ -2,7 +2,7 @@
 
 namespace GLOKON\CrowdAuth\Tests;
 
-use GLOKON\CrowdAuth\CrowdAPI;
+use \GLOKON\CrowdAuth\CrowdAPI;
 
 class CrowdAPITest extends \PHPUnit_Framework_TestCase
 {
