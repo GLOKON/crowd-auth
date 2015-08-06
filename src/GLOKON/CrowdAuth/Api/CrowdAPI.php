@@ -66,22 +66,25 @@ class CrowdAPI {
      */
     public function ssoAuthUser($credentials, $user_ip)
     {
-        $apiEndpoint = '/1/session';
-        $apiData = array(
-                    'username' => $credentials['username'],
-                    'password' => $credentials['password'],
-                    'validation-factors' => array(
-                        'validationFactors' => array(
-                            array(
-                                'name'  => 'remote_address',
-                                'value' => $user_ip
+        if(is_array($credentials) && isset($credentials["username"]) && isset($credentials["password"]))
+        {
+            $apiEndpoint = '/1/session';
+            $apiData = array(
+                        'username' => $credentials['username'],
+                        'password' => $credentials['password'],
+                        'validation-factors' => array(
+                            'validationFactors' => array(
+                                array(
+                                    'name'  => 'remote_address',
+                                    'value' => $user_ip
+                                )
                             )
-                        )
-                    ));
-        $apiReturn = $this->runCrowdAPI($apiEndpoint, "POST", $apiData);
-        if ($apiReturn['status'] == '201') {
-            if ($credentials['username'] == $apiReturn['data']['user']['name']) {
-                return $apiReturn['data']['token'];
+                        ));
+            $apiReturn = $this->runCrowdAPI($apiEndpoint, "POST", $apiData);
+            if ($apiReturn['status'] == '201') {
+                if ($credentials['username'] == $apiReturn['data']['user']['name']) {
+                    return $apiReturn['data']['token'];
+                }
             }
         }
         return null;
