@@ -1,6 +1,6 @@
 <?php
 
-use GLOKON\CrowdAuth\CrowdAPI;
+use GLOKON\CrowdAuth\Api\CrowdAPI;
 
 class CrowdAPITest extends PHPUnit_Framework_TestCase
 {

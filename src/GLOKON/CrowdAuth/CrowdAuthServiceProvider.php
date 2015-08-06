@@ -12,6 +12,7 @@
 namespace GLOKON\CrowdAuth;
 
 use Illuminate\Support\ServiceProvider;
+use GLOKON\CrowdAuth\Api\CrowdAPI;
 
 class CrowdAuthServiceProvider extends ServiceProvider {
 

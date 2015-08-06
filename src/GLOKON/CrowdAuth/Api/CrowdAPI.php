@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GLOKON\CrowdAuth;
+namespace GLOKON\CrowdAuth\Api;
 
 class CrowdAPI {
 
