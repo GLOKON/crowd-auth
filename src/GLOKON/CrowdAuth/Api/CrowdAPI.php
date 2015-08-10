@@ -57,7 +57,6 @@ class CrowdAPI {
         return array('status' => $crowdHTTPStatus, 'data' => $crowdOutputDecoded);
     }
 
-
     /**
      * Authenticates user and gets SSO token
      *
@@ -89,7 +88,6 @@ class CrowdAPI {
         return null;
     }
 
-
     /**
      * Retrieves user data from SSO token
      *
@@ -109,7 +107,6 @@ class CrowdAPI {
         return null;
     }
 
-
     /**
      * Retrieves the token if matched with sent token
      *
@@ -125,7 +122,6 @@ class CrowdAPI {
         }
         return null;
     }
-
 
     /**
      * Retrieves and updates the token if matched with sent token
@@ -148,7 +144,6 @@ class CrowdAPI {
         return null;
     }
 
-
     /**
      * Invalidates the token when logged out
      *
@@ -164,7 +159,6 @@ class CrowdAPI {
         }
         return false;
     }
-
 
     /**
      * Retrieves all user attributes and data.
@@ -197,7 +191,6 @@ class CrowdAPI {
         return null;
     }
 
-
     /**
      * Gets all groups a user is a direct member of.
      *
@@ -218,7 +211,6 @@ class CrowdAPI {
         return null;
     }
 
-
     /**
      * Checks to see if user exists by username
      *
@@ -234,7 +226,6 @@ class CrowdAPI {
         }
         return false;
     }
-
 
     /**
      * Checks to see if the user can login to the application

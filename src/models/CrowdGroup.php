@@ -12,6 +12,14 @@
 namespace GLOKON\CrowdAuth\Models;
 
 class CrowdGroup extends \Eloquent {
+
+    /**
+     * Whitelist
+     *
+     * Allow for mass Assignment
+     *
+     * @var array
+     */
     protected $fillable = array('group_name');
 
     /**
@@ -20,7 +28,6 @@ class CrowdGroup extends \Eloquent {
      * @var string
      */
     protected $table = 'crowd_groups';
-
 
     /**
      * Get all users that use this group

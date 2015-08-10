@@ -36,7 +36,6 @@ class CrowdAuthServiceProvider extends ServiceProvider {
         });
     }
 
-
     /**
      * Register the service provider.
      *
@@ -54,7 +53,6 @@ class CrowdAuthServiceProvider extends ServiceProvider {
             \App::make('crowd-auth')->ssoInvalidateToken($user->getRememberToken());
         });
     }
-
 
     /**
      * Get the services provided by the provider.

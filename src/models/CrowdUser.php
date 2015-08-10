@@ -20,6 +20,13 @@ class CrowdUser extends \Eloquent implements UserInterface, RemindableInterface 
 
     use UserTrait, RemindableTrait;
 
+    /**
+     * Whitelist
+     *
+     * Allow for mass Assignment
+     *
+     * @var array
+     */
     protected $fillable = array('crowd_key', 'username', 'email', 'display_name', 'first_name', 'last_name');
 
     /**
@@ -29,7 +36,6 @@ class CrowdUser extends \Eloquent implements UserInterface, RemindableInterface 
      */
     protected $table = 'crowd_users';
 
-
     /**
      * Get all groups that belong to the user
      *
@@ -38,7 +44,6 @@ class CrowdUser extends \Eloquent implements UserInterface, RemindableInterface 
     public function groups() {
         return $this->belongsToMany('GLOKON\CrowdAuth\Models\CrowdGroup', 'crowdgroup_crowduser', 'crowd_user_id', 'crowd_group_id');
     }
-
 
     /**
      * Determine if a Crowd User has a specific Group
@@ -53,5 +58,4 @@ class CrowdUser extends \Eloquent implements UserInterface, RemindableInterface 
                 ->first()
         );
     }
-
 }

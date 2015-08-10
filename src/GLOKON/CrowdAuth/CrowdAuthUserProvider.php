@@ -45,7 +45,6 @@ class CrowdAuthUserProvider implements UserProviderInterface {
         return null;
     }
 
-
     /**
      * Retrieve a user by the given credentials.
      *
@@ -58,7 +57,6 @@ class CrowdAuthUserProvider implements UserProviderInterface {
         }
         return null;
     }
-
 
     /**
      * Validate a user against the given credentials.
@@ -108,7 +106,6 @@ class CrowdAuthUserProvider implements UserProviderInterface {
         return false;
     }
 
-
     /**
      * Retrieve a user by by their unique identifier and "remember me" token.
      *
@@ -123,7 +120,6 @@ class CrowdAuthUserProvider implements UserProviderInterface {
         }
         return null;
     }
-
 
     /**
      * Update the "remember me" token for the given user in storage.
